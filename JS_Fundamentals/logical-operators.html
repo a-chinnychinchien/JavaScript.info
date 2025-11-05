@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // #1-5 What is the code below going to output?
+        alert( null || 2 || undefined ); // 2
+        alert( alert(1) || 2 || alert(3) ); //1, then 2. alert returns no value, ie undefined
+        alert( 1 && null && 2 );//null
+        alert( alert(1) && alert(2) ); // 1, then undefined
+        alert( null || 2 && 3 || 4 ); //3. AND is evaluated first, returning last value of 3
+
+        // #6 Write an if condition to check that age is between 14 and 90 inclusively.
+        // “Inclusively” means that age can reach the edges 14 or 90.
+        let age = 50;
+        if(age >= 14 && age <= 90){
+            console.log('I have the correct age');
+        }
+
+        // #7 Write an if condition to check that age is NOT between 14 and 90 inclusively.
+        // Create two variants: the first one using NOT !, the second one – without it.
+        let age7 = 50;
+        if(!(age >= 14 && age <= 90)){
+            console.log('I am NOT 14-90 years old');
+        }
+        if(age <= 14 && age >= 90){
+            console.log('I am not 14-90 years old');
+        }
+
+        // #8 Which of these alerts are going to execute?
+        // What will the results of the expressions be inside if(...)?
+        if (-1 || 0) alert( 'first' ); // alert since -1 is truthy, -1 is truthy and is result
+        if (-1 && 0) alert( 'second' ); //no alert since 0 is falsey, result is 0
+        if (null || -1 && 1) alert( 'third' ); //alert since AND is truthy(1). Returns 1
+
+        // #9 Write the code which asks for a login with prompt.
+        // If the visitor enters "Admin", then prompt for a password, 
+        // if the input is an empty line or Esc – show “Canceled”, 
+        // if it’s another string – then show “I don’t know you”.
+
+        // The password is checked as follows:
+
+        // If it equals “TheMaster”, then show “Welcome!”,
+        // Another string – show “Wrong password”,
+        // For an empty string or cancelled input, show “Canceled”
+        let login = prompt("Give me your login name",'');
+        if (login == "Admin"){
+            let password = prompt('Ok, give me your password','');
+            if (password == "TheMaster"){
+                console.log("Welcome!");
+            } else if (password){
+                console.log('Wrong Password');
+            }else{
+                console.log('Cancelled');
+            }
+        }else if (login){
+            console.log('I do not know you');
+        }else{
+            console.log('Canceled');
+        }
+
+    </script>
+</body>
+</html>
